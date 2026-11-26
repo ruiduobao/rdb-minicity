@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="RDB MiniCity 品牌标">
+  <!-- RDB MiniCity 自绘品牌标：深黛蓝圆角方底，白色轨道弧线环绕朱砂定位点，青绿点缀，中央字母 M -->
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="#173F5F"/>
+  <ellipse cx="64" cy="64" rx="46" ry="19" fill="none" stroke="#FFFFFF" stroke-width="5"
+           stroke-linecap="round" stroke-dasharray="218 72" transform="rotate(-24 64 64)" opacity="0.95"/>
+  <path d="M 22 92 A 50 50 0 0 0 52 110" fill="none" stroke="#2E7D6B" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="97" cy="38" r="6" fill="#2E7D6B"/>
+  <circle cx="64" cy="46" r="10" fill="#C8442C"/>
+  <circle cx="64" cy="46" r="4" fill="#FFFFFF"/>
+  <text x="64" y="102" text-anchor="middle" font-family="'PingFang SC','Microsoft YaHei',sans-serif"
+        font-size="44" font-weight="700" fill="#FFFFFF">M</text>
+</svg>

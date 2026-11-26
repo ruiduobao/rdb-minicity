@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RDB MiniCity · 微缩城市生成器 — 锐多宝出品</title>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">
+{ "imports": { "three": "./vendor/three.module.js", "three/addons/": "./vendor/addons/" } }
+</script>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <img class="brandmark" src="assets/brand.svg" alt="RDB MiniCity 品牌标" width="44" height="44">
+    <div>
+      <div class="brandline"><strong>RDB MiniCity</strong><span>微缩城市生成器</span></div>
+      <div class="tagline">RDB MiniCity · 锐多宝出品 —— 把你的城市，做成掌心里的微缩模型。</div>
+    </div>
+  </div>
+  <div class="byline">锐多宝 RDB 出品 · 数据 © OpenStreetMap contributors</div>
+</header>
+<main class="layout">
+  <aside class="panel">
+    <section>
+      <h2>1 · 选地点</h2>
+      <div class="searchrow">
+        <input id="searchInput" type="search" placeholder="输入中文地名，如：成都春熙路">
+        <button id="searchBtn">搜索</button>
+      </div>
+      <div id="searchResults" class="chips"></div>
+      <div id="presetRow" class="chips"></div>
+      <div id="minimap" aria-label="选点小地图"></div>
+      <p class="hint">也可以直接点小地图选中心点。当前地点：<strong id="placeName">—</strong></p>
+    </section>
+    <section>
+      <h2>2 · 选范围与配色</h2>
+      <div class="sizes" role="radiogroup" aria-label="范围边长">
+        <label><input type="radio" name="size" value="200"> 200 米</label>
+        <label><input type="radio" name="size" value="400" checked> 400 米</label>
+        <label><input type="radio" name="size" value="800"> 800 米</label>
+      </div>
+      <label class="field">配色主题
+        <select id="themeSel"></select>
+      </label>
+      <button id="genBtn" class="primary">生成微缩城市</button>
+      <p id="status" class="status" role="status">准备就绪。</p>
+    </section>
+    <section>
+      <h2>3 · 导出与分享</h2>
+      <div class="row">
+        <button data-export="2048">导出 2048px</button>
+        <button data-export="4096" id="export4096">导出 4096px</button>
+      </div>
+      <p class="hint" id="exportHint">免费版：2048px 导出带品牌水印，4096px 为 Pro 专属。Pro：去水印 + 4096px 解锁。</p>
+      <button id="shareBtn" class="ghost">复制分享链接</button>
+      <button id="resetViewBtn" class="ghost">重置视角</button>
+      <p class="hint">分享链接里带着地点、范围、主题和视角，朋友打开就能看到同款微缩城市。</p>
+    </section>
+    <section>
+      <h2>4 · 授权与版本</h2>
+      <p class="planline" id="planStatus">当前版本：免费版</p>
+      <div class="searchrow">
+        <input id="licenseInput" type="text" placeholder="输入授权码激活 Pro，如 RDBMC-XXXXX-…">
+        <button id="activateBtn">激活</button>
+      </div>
+      <p class="hint" id="activateMsg">购买后把收到的授权码粘贴到这里激活，激活状态会保存在本机浏览器。</p>
+      <table class="plans">
+        <thead><tr><th>版本</th><th>价格</th><th>功能</th></tr></thead>
+        <tbody>
+          <tr><td>免费版</td><td>免费</td><td>全部主题与地点生成；2048px 导出（带水印）</td></tr>
+          <tr><td>Pro 月付</td><td>10 元 / 月</td><td>去水印 + 4096px 高清导出（有效期内）</td></tr>
+          <tr><td>永久版</td><td>100 元（一次性）</td><td>去水印 + 4096px 高清导出，永久有效</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <section class="note">
+      <h2>说明</h2>
+      <p>建筑、道路、水系与绿地来自 OpenStreetMap 开放数据。国内部分区域建筑轮廓覆盖不全，生成结果可能偏空，这是数据源本身的局限；海外城市与国内核心城区效果通常更好。</p>
+    </section>
+  </aside>
+  <section class="stagewrap">
+    <div id="stage" aria-label="微缩城市三维预览"></div>
+    <p class="hint center">拖动旋转 · 滚轮缩放 · 右键平移 · 点击建筑查看名称与高度</p>
+  </section>
+</main>
+<footer class="foot">
+  <span>RDB MiniCity · 锐多宝出品</span>
+  <span>技术支持：<a href="mailto:caaschengrui@163.com">caaschengrui@163.com</a></span>
+</footer>
+<script src="vendor/leaflet.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
